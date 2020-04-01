@@ -1,0 +1,17 @@
+version: '2'
+services:
+  php-fpm:
+    image: xiaojunyi/php-fpm:7.4
+    restart: always
+    volumes:
+      - ./www:/www
+  nginx:
+    image: xiaojunyi/nginx:latest
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./www:/www
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    links:
+      - php-fpm
