@@ -10,6 +10,6 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && docker-php-ext-install intl pdo_mysql pdo_sqlite bcmath gd pcntl zip \
     && pecl install /tmp/pecl/redis-5.3.1.tgz \
-    && pecl install /tmp/pecl/mongodb-1.7.5.tgz \
+    && pecl install /tmp/pecl/mongodb-1.8.0.tgz \
     && docker-php-ext-enable opcache redis mongodb \
     && rm -rf /var/cache/apk/* && rm -rf /tmp/*
